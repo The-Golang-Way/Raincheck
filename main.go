@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -10,4 +12,11 @@ func main(){
 		panic(err)
 	}
 	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil{
+		panic(err)
+	}
+
+	fmt.Println(string(body))
 }
