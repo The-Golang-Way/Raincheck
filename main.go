@@ -27,6 +27,10 @@ func main(){
 	}
 	defer res.Body.Close()
 
+	if res.StatusCode != 200{
+		panic("Sorry! Weather API not available")
+	}
+
 	body, err := io.ReadAll(res.Body)
 	if err != nil{
 		panic(err)
@@ -34,5 +38,8 @@ func main(){
 
 	var weather Weather
 	err = json.Unmarshal(body, &weather)
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(weather)
 }
