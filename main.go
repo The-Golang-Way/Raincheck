@@ -43,5 +43,14 @@ func main(){
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(weather)
+
+	location, current := weather.Location, weather.Current
+
+	fmt.Printf(
+		"%s \t %s \t %.0fC (%s)\n",
+		location.Localtime,
+		location.Name,
+		current.TempC,
+		current.Condition.Text,
+	)
 }
