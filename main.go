@@ -6,6 +6,8 @@ import (
 	"io"
 	"net/http"
 	"os"
+
+	"github.com/fatih/color"
 )
 
 // this is giving me a headache man idek if im doing this right
@@ -19,7 +21,6 @@ type Weather struct{
 		Condition struct {
 			Text string `json: "text"`
 		} `json: condition`
-		Feelslike_C float64 `json: "feelslike_c"`
 	} `json:"current"`
 }
 
@@ -52,11 +53,25 @@ func main(){
 
 	location, current := weather.Location, weather.Current
 
-	fmt.Printf(
+	var output = fmt.Sprintf(
 		"%s \t\t %s \t %.0fC (%s)\n",
 		location.Localtime[len(location.Localtime)-5:len(location.Localtime)],
 		location.Name,
 		current.TempC,
 		current.Condition.Text,
 	)
+
+	if current.TempC > 20 {
+		color.Red(output)
+	} else if current.TempC > 15 {
+		color.Yellow(output)
+	} else if current.TempC > 10 {
+		color.Green(output)
+	} else if current.TempC > 5 {
+		color.Blue(output)
+	} else if current.TempC > 0 {
+		color.Cyan(output)
+	} else {
+		color.White(output)
+	}
 }
