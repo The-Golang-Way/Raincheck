@@ -53,8 +53,8 @@ func main(){
 	location, current := weather.Location, weather.Current
 
 	fmt.Printf(
-		"%s \t %s \t %.0fC (%s)\n",
-		location.Localtime,
+		"%s \t\t %s \t %.0fC (%s)\n",
+		location.Localtime[len(location.Localtime)-5:len(location.Localtime)],
 		location.Name,
 		current.TempC,
 		current.Condition.Text,
