@@ -11,12 +11,14 @@ import (
 type Weather struct{
 	Location struct{
 		Name string `json:"name"`
+		Localtime string `json: localtime`
 	} `json:"location"`
 	Current struct{
 		TempC float64 `json:"temp_c"`
 		Condition struct {
 			Text string `json: "text"`
 		} `json: condition`
+		Feelslike_C float64 `json: "feelslike_c"`
 	} `json:"current"`
 }
 
