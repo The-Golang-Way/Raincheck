@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 
 	"github.com/fatih/color"
 )
@@ -25,12 +24,13 @@ type Weather struct{
 }
 
 func main(){
-	userInput := "Toronto"
-	if len(os.Args) >= 2{
-		userInput = os.Args[1]
-	}
+	fmt.Println("Hey there! Want a raincheck on a city?")
+	for {
+	var userInput string
+	fmt.Print("Drop the place: ")
+	fmt.Scan(&userInput)
 
-	res, err := http.Get("http://api.weatherapi.com/v1/current.json?key=8bd70fc3fa2e4593815201535231606&q="+ userInput+"&aqi=no")
+	res, err := http.Get("http://api.weatherapi.com/v1/current.json?key=8bd70fc3fa2e4593815201535231606&q="+userInput+"&aqi=no")
 	if err != nil{
 		panic(err)
 	}
@@ -74,4 +74,12 @@ func main(){
 	} else {
 		color.White(output)
 	}
+
+	var userInputLoop string
+	fmt.Print("Want to check another place? [y/n]: ")
+	fmt.Scan(&userInputLoop)
+	if userInputLoop != "y"{
+		break
+	}
+}
 }
