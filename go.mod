@@ -1,4 +1,4 @@
-module github.com/Yehdar/raincheck/v2
+module github.com/The-Golang-Way/raincheck/v2
 
 go 1.20
 
