@@ -1,7 +1,6 @@
 # Raincheck
 ## Abstract
-Yoinked weatherapi to make a simple CLI app
-
+CLI application for developers to quickly retrieve weather statistics
 <p align="center"><img src="https://github.com/The-Golang-Way/raincheck/blob/main/demo/demo.png" width="80%"></p>
 
 
