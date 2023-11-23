@@ -3,6 +3,10 @@
 CLI application for developers to quickly retrieve weather statistics
 <p align="center"><img src="https://github.com/The-Golang-Way/raincheck/blob/main/demo/demo.png" width="80%"></p>
 
+### Technologies Used
+Go
+
+<hr> 
 
 ## Things to note:
 If the color module is not working (`go: go.mod file not found in current directory or any parent directory` or for some reason, it was not imported in the code), run this command `go env -w GO111MODULE=off` in the project directory. If it still does not work, manually download module by `go get github.com/fatih/color`
