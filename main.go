@@ -71,6 +71,8 @@ func main(){
 			color.Blue(output)
 		} else if current.TempC > 0 {
 			color.Cyan(output)
+		} else if current.TempC > -5 {
+			color.Magenta(output)
 		} else {
 			color.White(output)
 		}
